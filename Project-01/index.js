@@ -1,6 +1,7 @@
 const express = require("express");
 const users = require("./DummyData.json")
-const fs = require("fs")
+const fs = require("fs");
+const { json } = require("stream/consumers");
 
 const app = express();
 const PORT = 8000;
@@ -34,10 +35,28 @@ app.route("/api/users/:id").get((req,res)=>{
 
     return res.json(user)
 }).patch((req,res)=>{
-    // Edit user with id
-    return res.json({status:"Pending"})
+    const id = Number(req.params.id)
+    const body = req.body;
+    
+    const userIndex = users.findIndex((user) => Number(user.id) === id)
+
+    users[userIndex] = {...users[userIndex], ... body}
+
+    fs.writeFile("./DummyData.json", JSON.stringify(users),(err,data)=>{
+        return res.json({status:"success",user:users[userIndex]})
+    })
+
+    
 }).delete((req,res)=>{
-    // Delete user with id
+    const id = Number(req.params.id);
+    const body = req.body;
+
+    const userIndex = users.findIndex((user)=> Number(user.id) === id)
+    users.splice(userIndex,1)
+
+    fs.writeFile("./DummyData.json",JSON.stringify(users),(err)=>{
+        return res.json({status:"Deleted",id})
+    })
     return res.json({status:"Pending"})
 })
 

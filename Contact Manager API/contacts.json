@@ -1,1 +1,20 @@
-[{"id":1,"name":"Amit Sharma","email":"amit@example.com","phone":"9876543210"},{"id":2,"name":"Sneha Verma","email":"sneha@example.com","phone":"9123456789"},{"id":3,"name":"Rahul Mehta","email":"rahul@example.com","phone":"9012345678"}]
+[
+  {
+    "id": 1,
+    "name": "Amit Sharma",
+    "email": "amit@example.com",
+    "phone": "9876543210"
+  },
+  {
+    "id": 2,
+    "name": "Sneha Verma",
+    "email": "sneha@example.com",
+    "phone": "9123456789"
+  },
+  {
+    "id": 3,
+    "name": "Rahul Mehta",
+    "email": "rahul@example.com",
+    "phone": "9012345678"
+  }
+]

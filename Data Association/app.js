@@ -7,6 +7,7 @@ app.get("/", function (req, res) {
     res.send("hey")
 })
 
+
 app.get("/create", async function (req, res) {
     let user = await userModel.create({
         username: "harsh",
@@ -28,7 +29,5 @@ app.get("/post/create", async function (req, res) {
 
    res.send({post,user})
 })
-
-
 
 app.listen(3000);

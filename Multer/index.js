@@ -37,5 +37,4 @@ app.post("/upload",  upload.single('profileImage'), (req, res)=> {
 })
 
 
-
 app.listen(PORT, () => console.log(`Server started at PORT:${PORT}`))

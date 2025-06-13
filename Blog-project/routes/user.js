@@ -13,7 +13,7 @@ router.get("/signup", (req, res) => {
 router.post("/signin", async (req, res) => {
     try {
         const { email, password } = req.body;
-        const token = User.matchPasswordAndGenerateToken(email, password)
+        const token = await User.matchPasswordAndGenerateToken(email, password)
 
 
         return res.cookie("token", token).redirect("/")
@@ -24,6 +24,11 @@ router.post("/signin", async (req, res) => {
         })
     }
 })
+
+router.get("/logout", (req,res)=> {
+    res.clearCookie("token").redirect("/")
+})
+
 
 router.post("/signup", async (req, res) => {
     const { fullName, email, password } = req.body;

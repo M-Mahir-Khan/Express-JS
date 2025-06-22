@@ -15,6 +15,7 @@ io.on("connection",(socket)=>{
     })
 })
 
+
 app.use(express.static(path.resolve("./public")));
 
 app.get("/", (req,res)=>{
